@@ -1,0 +1,37 @@
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-center ">
+        <h1 class="display-4 text-white" style="padding-top: 100px;">About Us</h1>
+        <p class="lead text-white-50">Welcome to TFI Buff, your ultimate destination for everything related to Telugu cinema. We are passionate about celebrating the rich culture and cinematic excellence of the Telugu film industry.</p>
+        <p class="text-white-50">At TFI Buff, we provide comprehensive rankings, expert reviews, and exclusive content that brings you closer to the world of TFI. Join us in exploring the best movies, series, and documentaries that define Telugu cinema.</p>
+          <p [appHighlight]="'lightgreen'" style="border-radius: 25vh;">Em Chustunavvv !</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bg-dark text-white">
+<app-child
+  [userName]="'Varun from About Us'"
+  (messageFromChild)="handleMessage($event)">
+</app-child>
+</div>
+<p><strong>Message:</strong> {{ message }}</p>
+<div class="weatherContainer">
+  <div class="WeatherHeader">
+
+<input [(ngModel)]="city" placeholder="Enter city name" class="form-control mb-3" />
+<button (click)="getWeather()" class="btn btn-primary mb-3">Get Weather</button>
+</div>
+<div *ngIf="weatherData" >
+
+  <h3>Weather in {{ weatherData.location.name }}</h3>
+  <p>Temperature: {{ weatherData.current.temp_c }}°C</p>
+  <p>Condition: {{ weatherData.current.condition.text }}</p>
+  <img [src]="weatherData.current.condition.icon" alt="Weather icon">
+</div>
+
+
+
+</div>
